@@ -1,8 +1,11 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
+
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const User = require('../../models/User')
+//const User = require('../../models/User')
 
 
 /**
@@ -56,7 +59,6 @@ router.post('/login', (req, res, next) => {
             })
         })
 })
-
 
 
 module.exports = router
