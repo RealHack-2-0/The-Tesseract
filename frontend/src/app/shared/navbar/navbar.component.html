@@ -1,0 +1,37 @@
+<nav id="a" class="navbar navbar-horizontal navbar-expand-lg bg-default">
+  <div class="container">
+    <a class="navbar-brand" href="#">QSharp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default"
+      aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbar-default">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a href="../../index.html">
+            </a>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav ml-lg-auto">
+        <li *ngIf="!currentUser" class="nav-item">
+          <a class="nav-link nav-link-icon ">
+            <button type="button" class="btn btn-secondary" routerLink="/login">Login</button>
+          </a>
+        </li>
+        <li *ngIf="currentUser" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ currentUser.firstname}} {{ currentUser.lastname }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" routerLink="/dashboard">Dashboard</a>
+            <a class="dropdown-item" href="#" routerLink="/user">Profile</a>
+            <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

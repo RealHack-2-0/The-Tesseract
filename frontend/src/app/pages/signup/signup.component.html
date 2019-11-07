@@ -1,0 +1,56 @@
+<div class="row mt-5">
+  <div class="col col-sm-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4 text-center">
+    <div class="card signup-card">
+      <div class="card-body">
+        <h5 class="card-title">Sign up</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Enter your details</h6>
+      </div>
+      <div class="card-body">
+
+
+        <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+          <div class="form-group">
+            <label for="loginFirstname">Firstname</label>
+            <input type="text" class="form-control" id="loginFirstname" placeholder="Enter firstname" formControlName="firstname"
+            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.firstname.touched && !signUpForm.controls.firstname.valid }">
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.firstname.errors?.required">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="loginLastname">Lastname</label>
+            <input type="text" class="form-control" id="loginLastname" placeholder="Enter lastname" formControlName="lastname"
+            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.lastname.touched && !signUpForm.controls.lastname.valid }">
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.lastname.errors?.required">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="loginUsername">Username</label>
+            <input type="text" class="form-control" id="loginUsername" placeholder="Enter username" formControlName="username"
+            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.username.touched && !signUpForm.controls.username.valid }">
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.username.errors?.required">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" formControlName="email"
+            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.email.touched && !signUpForm.controls.email.valid }">
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.email.errors?.required">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" formControlName="password"
+            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.password.touched && !signUpForm.controls.password.valid }">
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.password.errors?.required">Required</small>
+            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.password.errors?.minlength">Password should have atleast 5 characters</small>
+          </div>
+          <div class="mt-2 mb-2">
+            <small class="error"> {{error}} </small>
+          </div>
+          <button type="submit" class="btn btn-primary" [ngClass]="{ disabled: loading }" >Sign Up</button>
+        </form>
+
+
+      </div>
+      <div class="card-body">
+        <a routerLink="/login" class="card-link">Already have an account? Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>

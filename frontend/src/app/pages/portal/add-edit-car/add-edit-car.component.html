@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 *ngIf="!editId" class="mt-5 mb-4">Create Car</h2>
+  <h2 *ngIf="editId" class="mt-5 mb-4">Edit Car</h2>
+  <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="carVendor">Vendor</label>
+      <input type="text" class="form-control" id="carVendor" placeholder="Enter vendor" formControlName="vendor">
+    </div>
+    <div class="form-group">
+      <label for="carModel">Model</label>
+      <input type="text" class="form-control" id="carModel" placeholder="Enter model" formControlName="model">
+    </div>
+    <div class="form-group">
+      <label for="carNumber">Vehicle Number</label>
+      <input type="text" class="form-control" id="carNumber" placeholder="Enter vehicle number"
+        formControlName="number">
+    </div>
+    <div class="form-group">
+      <label for="carMilage">Milage (km)</label>
+      <input type="number" class="form-control" id="carMilage" placeholder="Enter milage" formControlName="milage">
+    </div>
+    <div class="mt-2 mb-2">
+      <small class="error"> {{error}} </small>
+    </div>
+    <button type="submit" class="btn btn-primary" [ngClass]="{ disabled: loading }">
+      <span *ngIf="!editId">Create</span>
+      <span *ngIf="editId">Save</span>
+    </button>
+  </form>
+</div>

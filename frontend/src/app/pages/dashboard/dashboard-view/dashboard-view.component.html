@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="mt-5 mb-4">
+    <h2 class="section-heading">Services</h2>
+    <a href="#" class="btn btn-outline-primary section-action" routerLink="service/create">Add Service</a>
+  </div>
+  <div class="row">
+    <div *ngFor="let service of services" class="col col-sm-12 col-md-6 col-lg-4">
+      <div class="card service-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ service.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ service.description }}</h6>
+          <p class="card-text">Rs. {{ service.price }}.00</p>
+          <a href="#" routerLink="service/edit/{{service._id}}" class="btn btn-outline-primary card-link">Edit</a>
+          <button class="btn btn-outline-danger card-link" (click)="onDelete(service._id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

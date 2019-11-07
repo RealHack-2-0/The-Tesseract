@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <a class="btn btn-link" href="#" routerLink="/portal">Back</a>
+  <div class="mt-5">
+    <h1 class="display-2">
+      {{ car?.number }}
+    </h1>
+  </div>
+  <div class="row ml-1 mr-1 mt-5">
+    <div class="col col-sm-3">
+      <h6 class="card-subtitle mb-2 text-muted">Model</h6>
+      <p class="card-text ">{{ car?.model }}</p>
+    </div>
+    <div class="col col-sm-3">
+      <h6 class="card-subtitle mb-2 text-muted">Vendor</h6>
+      <p class="card-text">{{ car?.vendor }}</p>
+    </div>
+    <div class="col col-sm-3">
+      <h6 class="card-subtitle mb-2 text-muted">Milage</h6>
+      <p class="card-text">{{ car?.milage }} km</p>
+    </div>
+    <div class="col col-sm-3 text-right">
+      <a href="#" class="card-link" routerLink="/portal/car/edit/{{car._id}}">Edit</a>
+    </div>
+  </div>
+  <ul class="nav nav-tabs mt-5" id="car_tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="reservations-tab" data-toggle="tab" href="#reservations" role="tab"
+        aria-controls="reservations" aria-selected="true">Reservations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="options-tab" data-toggle="tab" href="#options" role="tab" aria-controls="options"
+        aria-selected="false">Options</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="car_tab_content">
+    <div class="tab-pane fade show active" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
+
+    </div>
+  </div>
+</div>

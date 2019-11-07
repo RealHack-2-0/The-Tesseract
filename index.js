@@ -4,20 +4,22 @@ const cors = require('cors')
 const logger = require('morgan')
 
 const app = express();
-const router = express.Router()
+
 const mongoose = require('mongoose')
-//require('../dotenv').config()
-const db = "mongodb+srv://nexumuser:" + "nexumuser" + "@nexum-deulb.mongodb.net/test?retryWrites=true&w=majority"
+
+const db = "mongodb+srv://mihiru:mihiru@cluster0-2vea0.mongodb.net/test?retryWrites=true&w=majority"
 
 // Connect to mongodb server
-mongoose.connect(db, err => {
+mongoose.connect(db, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+}, err => {
     if (err) {
         console.error('Error!' + err)
     } else {
         console.log('connected to database')
     }
 })
-module.exports = router
 
 // Setup loggers and data parsers
 app.use(cors())

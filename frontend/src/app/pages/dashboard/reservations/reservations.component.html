@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="mt-5 mb-4">
+    <h2 class="section-heading">Reservations</h2>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Vehicle</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation._id }}</td>
+        <td>{{ reservation.vehicle?.number }}</td>
+        <td>{{ reservation.createdBy.firstname }}</td>
+        <td>{{ reservation.requested.substr(0,10) }}</td>
+        <td>{{ reservation.created.substr(11,8) }}</td>
+        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false"
+            autocomplete="off" (click)="reservation.accept='Accepted'">
+            Accept<a *ngIf="reservation.accept">ed</a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

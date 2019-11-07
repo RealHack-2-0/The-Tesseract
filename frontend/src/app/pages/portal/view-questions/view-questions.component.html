@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <a class="btn btn-link" href="#" routerLink="/portal">Back</a>
+
+  <div *ngFor="let ques of questions" class="card item-card mt-3" style="width: 60rem;">
+    <div class="card-body">
+      <p class="card-title">{{ ques.owner }}</p>
+      <h5 class="card-title">{{ ques.title }}</h5>
+      <p class="card-title">{{ ques.content }}</p>
+      <a href="#" routerLink="/portal/car/view/{{ques._id}}" class="btn btn-outline-primary card-link">View</a>
+    </div>
+  </div>
+
+
+</div>
