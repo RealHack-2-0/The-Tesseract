@@ -43,7 +43,7 @@ passport.use('google',
     }, async (accessToken, refreshToken, profile, done) => {
         try {
             //finding the already exist user
-            const existingUser = await User.findOne({'google.id': profile.id});
+            const existingUser = await User.findOne({'google.email': profile.email});
 
             if (existingUser) return done(null, existingUser);
 
