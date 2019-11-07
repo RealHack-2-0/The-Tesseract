@@ -3,17 +3,18 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
 const User = require('./../../models/user');
-//const {validateBody, schemas} = require('./../../helpers/helper');
+const {validateBody, schemas} = require('./../../helpers/helper');
 
 const passportSignIn = passport.authenticate('local', {session: false});
 
 router.route('/signup').post(validateBody(schemas.authSignUpSchema), async (req, res, next) => {
-    const {_id, username, passwd, signuptime, photourl} = req.body;
+    const {email, username, passwd, signuptime, photourl} = req.body;
 
     // Check if there is a user with the same email
-    const foundUser = await User.findOne({"local.username": username});
-    if (foundUser) {
-        return res.status(403).json({error: 'Username is already in use'});
+    const foundEmail = await User.findOne({"local.email": email});
+    const foundUsername = await User.findOne({"local.username": username});
+    if (foundEmail || foundUsername) {
+        return res.status(403).json({error: 'Email or username is already in use'});
     }
 
     // Create a new user
@@ -21,10 +22,10 @@ router.route('/signup').post(validateBody(schemas.authSignUpSchema), async (req,
         method: 'local',
         local: {
             email,
-            password,
-            family_name,
-            given_name,
-            photo: '/male.png'
+            username,
+            passwd,
+            signuptime,
+            photourl,
         }
     });
 

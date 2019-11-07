@@ -26,7 +26,6 @@ var userSchema = new mongoose.Schema({
         },
         photourl:{
             type:String,
-            required:true,
         },
     },
     google: {
