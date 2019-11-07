@@ -1,11 +1,30 @@
 const mongoose = require('mongoose');
 
 var answerSchema = new mongoose.Schema({
-    content: "",
-    timestamp: "",
-    owner: "",
-    upvotecount: "",
-    downvotecount: "",
+    _id:{
+        type:String,
+        required:true
+    },
+    content:{
+        type:String,
+        required:true
+    },
+    timestamp:{
+        type:Date,
+        required:true
+    },
+    owner:{
+        type:String,
+        required:true
+    },
+    upvotecount:{
+        type:Number,
+        required:true
+    },
+    downvotecount:{
+        type:Number,
+        required:true,
+    },
 });
 
 module.exports = mongoose.model('answer', answerSchema);
