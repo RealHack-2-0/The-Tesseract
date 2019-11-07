@@ -1,26 +1,20 @@
 {
   "name": "qsharp",
-  "version": "1.0.0",
-  "description": "qsharp",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RealHack-2-0/The-Tesseract.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RealHack-2-0/The-Tesseract/issues"
-  },
-  "homepage": "https://github.com/RealHack-2-0/The-Tesseract#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "morgan": "^1.9.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "faker": "^4.1.0",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.7.8",
+    "morgan": "~1.9.1",
+    "pusher": "^3.0.0"
   }
 }
