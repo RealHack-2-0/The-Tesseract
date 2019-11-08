@@ -10,18 +10,6 @@
 
         <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
           <div class="form-group">
-            <label for="loginFirstname">Firstname</label>
-            <input type="text" class="form-control" id="loginFirstname" placeholder="Enter firstname" formControlName="firstname"
-            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.firstname.touched && !signUpForm.controls.firstname.valid }">
-            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.firstname.errors?.required">Required</small>
-          </div>
-          <div class="form-group">
-            <label for="loginLastname">Lastname</label>
-            <input type="text" class="form-control" id="loginLastname" placeholder="Enter lastname" formControlName="lastname"
-            [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.lastname.touched && !signUpForm.controls.lastname.valid }">
-            <small class="form-text custom-invalid-feedback" *ngIf="signUpForm.controls.lastname.errors?.required">Required</small>
-          </div>
-          <div class="form-group">
             <label for="loginUsername">Username</label>
             <input type="text" class="form-control" id="loginUsername" placeholder="Enter username" formControlName="username"
             [ngClass]="{'form-control': true, 'is-invalid': signUpForm.controls.username.touched && !signUpForm.controls.username.valid }">

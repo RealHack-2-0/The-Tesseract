@@ -35,9 +35,6 @@ export class SignupComponent {
 
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({
-      //[value,validator]
-      firstname: [null, Validators.required],
-      lastname: [null, Validators.required],
       username: [null, [Validators.required]],
       email: [
         null,
@@ -47,7 +44,6 @@ export class SignupComponent {
         ]
       ],
       password: [null, [Validators.required, Validators.minLength(5)]]
-      /*address : this.formBuilder.group({}) */
     });
   }
 
@@ -55,8 +51,6 @@ export class SignupComponent {
     this.loading = true;
     this.authService
       .signUp({
-        firstname: this.signUpForm.controls['firstname'].value,
-        lastname: this.signUpForm.controls['lastname'].value,
         username: this.signUpForm.controls['username'].value,
         password: this.signUpForm.controls['password'].value,
         email: this.signUpForm.controls['email'].value

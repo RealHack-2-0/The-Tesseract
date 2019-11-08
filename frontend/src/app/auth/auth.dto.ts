@@ -12,8 +12,6 @@ export interface SignInResponse {
 }
 
 export interface SignUpRequest {
-  firstname: string;
-  lastname: string;
   username: string;
   password: string;
   email: string;

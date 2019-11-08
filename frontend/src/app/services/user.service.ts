@@ -23,7 +23,7 @@ export class UserService {
   collectCurrent(): Observable<User> {
     return this.http.get(this.currentUrl).pipe(
       first(),
-      map(res => res as User),
+      map(res => res as any),
       tap(user => this.setUser(user))
     );
   }
@@ -57,7 +57,7 @@ export class UserService {
   getById(userId: string): Observable<User> {
     return this.http.get(this.currentUrl + '/' + userId).pipe(
       first(),
-      map(res => res as User)
+      map(res => res as any)
     );
   }
 

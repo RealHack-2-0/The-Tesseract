@@ -33,10 +33,8 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
-      //[value,validator]
-      email: [null, Validators.required],
+      username: [null, Validators.required],
       password: [null, Validators.required]
-      /*address : this.formBuilder.group({}) */
     });
   }
 

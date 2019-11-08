@@ -8,12 +8,10 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { ApiResponse } from '../api/api.dto';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   // API Endpoints
   private signInUrl = AppConfig.apiUrl + '/auth/signin';
   private signUpUrl = AppConfig.apiUrl + '/auth/signup';
@@ -22,21 +20,21 @@ export class AuthService {
     private http: HttpClient,
     private userService: UserService,
     private _router: Router
-  ) { }
+  ) {}
 
   isAuthorized() {
     return moment().isBefore(this.getExpiration());
   }
 
   signUp(request: SignUpRequest) {
-    return this.http.post(this.signUpUrl, request).pipe(
-      map(res => res as ApiResponse)
-    );
+    return this.http
+      .post(this.signUpUrl, request)
+      .pipe(map(res => res as ApiResponse));
   }
 
   signIn(request: SignInRequest) {
     return this.http.post(this.signInUrl, request).pipe(
-      tap(res => this.setSession(res as SignInResponse)),
+      tap(res => this.setSession(res as any)),
       shareReplay(),
       flatMap(() => this.userService.collectCurrent())
     );
